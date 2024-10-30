@@ -41,13 +41,9 @@
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                 </a>
                 <h1 class="main-heading">Welcome to Dex Trending (API)</h1>
-<!--                 <p class="main-text">
+                <p class="main-text">
                     Quickly get your token trending among DEXTools' hot pairs. 
                     Complete all information accurately to secure a spot in the next trending pairs.
-                </p> -->
-                <p class="main-text">
-                    Well who do we have here. isn't that king tade, also known globally as dj pixie? 
-                    Who gave you power bank to charge your phone?. 
                 </p>
                 <a href="buybot.html" class="buy-btn">Purchase Today</a>
             </div>
@@ -70,7 +66,14 @@
                         <label for="contact" class="scroll-animation">Contract Address</label>
                         <input type="text" id="contact" class="address scroll-animation" required>
                         <label for="token chain" class="scroll-animation">Token Chain</label>
-                        <input type="text" id="chain" class="chain scroll-animation" required>
+                        <select name="chain" id="chain-dropdown" class="scroll-animation" required>
+                            <option value=""> -- Select Chain -- </option>
+                            <option value="BSC">BNB Smart Chain (BSC)</option>
+                            <option value="SOL">Solana</option>
+                            <option value="ETH">Ethereum</option>
+                            <option value="TRON">Tron</option>
+                            <option value="Others">Others</option>
+                        </select>
                         <label for="dextool link" class="scroll-animation">Dextool Link</label>
                         <input type="text" id="dx-link" class="dx-link scroll-animation">
                     </div>
@@ -79,18 +82,9 @@
                         <label for="duration" class="duration scroll-animation">Duration</label>
                         <select name="duration" id="duration-dropdown" class="scroll-animation" required>
                             <option value=""> -- Select Duration -- </option>
-                            <option value="6 hours">6 Hours Trending</option>
-                            <option value="12 hours">12 Hours Trending</option>
                             <option value="24 hours">24 Hours Trending</option>
                             <option value="48 hours">48 Hours Trending</option>
-                        </select>
-        
-                        <label for="placement" class="placement scroll-animation">Placement</label>
-                        <select name="placement" id="placement-dropdown" class="scroll-animation" required>
-                            <option value=""> -- Select Placement -- </option>
-                            <option value="1-3">Top #1 - #3 Spot</option>
-                            <option value="4-6">Top #4 - #6 Spot</option>
-                            <option value="7-10">Top #7 - #10 Spot</option>
+                            
                         </select>
         
                         <label for="price" class="scroll-animation">Price</label>
