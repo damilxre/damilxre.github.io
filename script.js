@@ -1,21 +1,3 @@
-// PAGE SWITCH TRANSITION
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   // Check if there's a hash in the URL on page load
-//   const hash = window.location.hash;
-//   if (hash) {
-//     const targetElement = document.querySelector(hash);
-//     if (targetElement) {
-//       targetElement.scrollIntoView({
-//         behavior: 'smooth'
-//       });
-//     }
-//   }
-// });
-
-
-// GALAXY ANIMATION 
-
 const landingPage = document.querySelector('.landing-page');
 const starCount = 100;
     for (let i = 0; i < starCount; i++) {
@@ -139,32 +121,42 @@ animateScrollElementsThree();
 
 // DEX FORM SUBMISSION
 
-const prices = {
-  "6 hours": { "1-3": 600, "4-6": 450, "7-10": 300},
-  "12 hours": { "1-3": 1500, "4-6": 1000, "7-10": 800},
-  "24 hours": { "1-3": 3000, "4-6": 2000, "7-10": 1500 },
-  "48 hours": { "1-3": 6000, "4-6": 5000, "7-10": 4000 },
-};
+// const prices = {
+//   "24 hours": { "1-3": 3000, "4-6": 2000, "7-10": 1500 },
+//   "48 hours": { "1-3": 6000, "4-6": 5000, "7-10": 4000 },
+// };
 
 const trendDurationSelect = document.getElementById("duration-dropdown");
-const trendPlacementSelect = document.getElementById("placement-dropdown");
+const chainSelect = document.getElementById("chain-dropdown");
 const priceInput = document.getElementById("price");
 let button = document.getElementById('submitButton');
 let overlay = document.getElementById('overlay');
 
 function updatePrice() {
   const duration = trendDurationSelect.value;
-  const placement = trendPlacementSelect.value;
+  const chain = chainSelect.value;
   
-  if (duration && placement) {
-      priceInput.value = `$${prices[duration][placement]}`;
-  } else {
-      priceInput.value = "";
+let price = '';
+  if ((chain === "BSC" || chain === "SOL") && duration === "24 hours") {
+    price = '$2400';
+  } else if ((chain === "BSC" || chain === "SOL") && duration === "48 hours") {
+    price = '$3400';
+  } else if (chain === "ETH" && duration === "24 hours") {
+    price = '$3000';
+  } else if (chain === "ETH" && duration === "48 hours") {
+    price = '$4700';
+  } else if ((chain === "TRON" || chain === "Others") && duration === "24 hours") {
+    price = '$1700';
+  } else if ((chain === "TRON" || chain === "Others") && duration === "48 hours") {
+    price = '$2500';
   }
+
+  priceInput.value = price;
 }
 
-trendDurationSelect.addEventListener("change", updatePrice);
-trendPlacementSelect.addEventListener("change", updatePrice);
+  chainSelect.addEventListener("change", updatePrice);
+  trendDurationSelect.addEventListener("change", updatePrice);
+
 
 function sendMail() { 
   const form = document.getElementById('form');
@@ -179,11 +171,10 @@ function sendMail() {
 
   let params = {
       name: document.getElementById('name').value,
-      contact: document.getElementById('contact').value,
-      chain: document.getElementById('chain').value,
+      contract: document.getElementById('contact').value,
+      chain: chainSelect.value,
       link: document.getElementById('dx-link').value,
       trendDuration: trendDurationSelect.value,
-      trendPlacement: trendPlacementSelect.value,
       price: priceInput.value,
   };
 
@@ -193,10 +184,9 @@ function sendMail() {
           button.style.backgroundColor = '#106d7f';
           button.style.color = '#ffffff';
 
-          // alert('Your form has been submitted successfully!');
           clearForm();
-          // window.location.href = "https://chatgpt.com";
-      })
+
+        })
       .catch((error) => {
           alert('There was an error sending your form. Please try again later.');
           console.error("EmailJS Error:", error);
@@ -211,9 +201,8 @@ function sendMail() {
 function clearForm() {
   document.getElementById('name').value = '';
   document.getElementById('contact').value = '';
-  document.getElementById('chain').value = '';
+  document.getElementById('chain-dropdown').value = '';
   trendDurationSelect.value = '';
-  trendPlacementSelect.value = '';
   priceInput.value = '';
   document.getElementById('dx-link').value = '';
 }
