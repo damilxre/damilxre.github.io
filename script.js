@@ -185,7 +185,11 @@ function sendMail() {
           button.style.color = '#ffffff';
 
           clearForm();
-
+         
+          setTimeout(() => {
+            window.location.href = "https://t.me/marstrendings";
+          }, 2000)
+          
         })
       .catch((error) => {
           alert('There was an error sending your form. Please try again later.');
