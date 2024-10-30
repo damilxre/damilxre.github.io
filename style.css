@@ -424,10 +424,6 @@ a {
     width: 100%;
 }
 
-header .nav-btn:hover {
-    width: 170px;
-}
-
 .plan {
     text-transform: uppercase;
     font-size: 1.2rem;
