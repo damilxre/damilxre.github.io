@@ -171,6 +171,7 @@ function sendMail() {
 
   let params = {
       name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
       contract: document.getElementById('contact').value,
       chain: chainSelect.value,
       link: document.getElementById('dx-link').value,
@@ -185,12 +186,13 @@ function sendMail() {
           button.style.color = '#ffffff';
 
           clearForm();
-         
+
           setTimeout(() => {
             window.location.href = "https://t.me/marstrendings";
           }, 2000)
-          
+        
         })
+
       .catch((error) => {
           alert('There was an error sending your form. Please try again later.');
           console.error("EmailJS Error:", error);
@@ -206,6 +208,7 @@ function clearForm() {
   document.getElementById('name').value = '';
   document.getElementById('contact').value = '';
   document.getElementById('chain-dropdown').value = '';
+  document.getElementById('email').value = '';
   trendDurationSelect.value = '';
   priceInput.value = '';
   document.getElementById('dx-link').value = '';
