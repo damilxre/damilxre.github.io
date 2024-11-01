@@ -52,6 +52,7 @@ header {
 .header-container {
     display: flex;
     justify-content: space-between;
+    outline: 1px solid lime;
 }
 
 .nav-btn-holder {
