@@ -171,7 +171,6 @@ function sendMail() {
 
   let params = {
       name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
       contract: document.getElementById('contact').value,
       chain: chainSelect.value,
       link: document.getElementById('dx-link').value,
@@ -208,7 +207,6 @@ function clearForm() {
   document.getElementById('name').value = '';
   document.getElementById('contact').value = '';
   document.getElementById('chain-dropdown').value = '';
-  document.getElementById('email').value = '';
   trendDurationSelect.value = '';
   priceInput.value = '';
   document.getElementById('dx-link').value = '';
